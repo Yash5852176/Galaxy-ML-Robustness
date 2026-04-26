@@ -1,21 +1,24 @@
 # Galaxy-ML-Robustness: Weak-Lensing Galaxy Analysis 🌌
 
-Studying how noise and blur affect galaxy image analysis under realistic observational conditions using Machine Learning.
+Analyzing noise and blur resilience in ML-based weak-lensing galaxy image interpretation.
 
-## 📌 Project Overview
-This project focuses on the robustness of ML models when applied to astronomical data. Specifically, it analyzes the impact of observational artifacts (noise, atmospheric blur) on the accuracy of weak-lensing galaxy image interpretation.
+## 📌 Overview
+Weak gravitational lensing is a critical probe of the dark sector. However, realistic observational artifacts like sky noise and atmospheric Point Spread Function (PSF) blur can degrade the performance of shape-measurement ML models. This project quantifies this degradation and explores robust training strategies.
 
-## 🚀 Key Research Areas
-- **Image Processing:** Applying blur and noise filters to simulate realistic conditions.
-- **Robustness Analysis:** Evaluating ML model performance under varying signal-to-noise ratios.
-- **Astro-ML:** Bridging observational cosmology with deep learning techniques.
+## 🚀 Technical Methodology
+- **Simulation Engine:** Uses `GalSim` (or similar) to generate synthetic galaxy images with varyng Sersic profiles.
+- **Artifact Injection:** Implementation of additive Gaussian noise and Moffat/Gaussian PSF convolution kernels.
+- **Robustness Metric:** Evaluation of model MSE and multiplicative/additive bias ($m$ and $c$ values) across signal-to-noise ratios (SNR).
 
-## 🛠️ Tech Stack
-- **Languages:** Python
-- **Libraries:** NumPy, SciPy, Matplotlib
-- **Concepts:** Image Processing, Signal Processing, Weak Lensing
+## 🛠️ Architecture
+1. `data_gen.py`: Script to generate high-fidelity and artifact-degraded image pairs.
+2. `robust_trainer.py`: PyTorch-based training script with data augmentation for noise resilience.
+3. `metrics.ipynb`: Analysis of model bias and performance stability.
 
-## 📂 Project Structure
-- `simulations/`: Scripts for generating noisy/blurry galaxy images.
-- `analysis/`: Notebooks for robustness evaluation.
-- `docs/`: Theoretical background on weak lensing.
+## 📂 Tech Stack
+- **Core:** Python, NumPy, SciPy
+- **Astro Tools:** Astropy, GalSim
+- **ML:** PyTorch, Matplotlib
+
+---
+*Part of the Research Portfolio for Yash Yadav.* ✨
